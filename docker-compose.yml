@@ -1,0 +1,30 @@
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "DevOnly123!"
+    ports:
+      - "1433:1433"
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    environment:
+      ConnectionStrings__Default: "Server=db;Database=CrmLite;User Id=sa;Password=DevOnly123!;TrustServerCertificate=True;"
+      Jwt__Key: "dev-only-key-change-me-0123456789abcdef-0123456789"
+      Jwt__Issuer: "crm-lite"
+      Jwt__Audience: "crm-lite"
+      ASPNETCORE_URLS: "http://+:8080"
+    ports:
+      - "5000:8080"
+    depends_on:
+      - db
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.web
+    ports:
+      - "5173:80"
+    depends_on:
+      - api

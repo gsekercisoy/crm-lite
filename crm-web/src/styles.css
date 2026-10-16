@@ -1,0 +1,14 @@
+body { font-family: system-ui, sans-serif; margin: 0; background: #f4f5f7; color: #222; }
+nav { background: #1f2937; color: white; padding: 10px 16px; display: flex; gap: 12px; align-items: center; }
+nav a { color: #e5e7eb; text-decoration: none; }
+nav a:hover { color: white; }
+.container { max-width: 1100px; margin: 20px auto; padding: 0 16px; }
+.card { background: white; border-radius: 8px; padding: 16px; box-shadow: 0 1px 3px rgba(0,0,0,.1); margin-bottom: 12px; }
+input, select, button { padding: 8px 10px; margin: 4px 0; border-radius: 6px; border: 1px solid #ccc; }
+button { background: #2563eb; color: white; border: none; cursor: pointer; }
+button:disabled { opacity: .5; }
+.board { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+.column { background: #e5e7eb; border-radius: 8px; padding: 8px; min-height: 200px; }
+.deal-card { background: white; border-radius: 6px; padding: 8px; margin-bottom: 8px; }
+.error { color: #b91c1c; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; }
